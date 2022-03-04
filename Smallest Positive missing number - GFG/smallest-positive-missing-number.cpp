@@ -25,6 +25,8 @@ class Solution
                 
         }
         */
+        // PEHLE HI ANS KO 1 MAAN LENA H,
+        // FIR AGAR KOI V VALUE  KE BARABAR AAYEGA TO ANS KO EK BADHA DENGE
         sort(arr,arr+n);
         int ans=1;
         for(int i=0;i<n;i++)
