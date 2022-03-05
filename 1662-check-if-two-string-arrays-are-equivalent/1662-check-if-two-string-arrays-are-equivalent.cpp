@@ -1,6 +1,8 @@
 class Solution {
 public:
     bool arrayStringsAreEqual(vector<string>& word1, vector<string>& word2) {
+        //I WAS ASSUMING SIZE OF WORD 1 AND WORD 2 AND 
+        //GETTING WRONG ANSWERS, 
         int n= word1.size();
         int m= word2.size();
         string w1= word1[0];
