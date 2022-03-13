@@ -14,8 +14,10 @@ public:
             //     ans.push_back(true);
             // else
             //     ans.push_back(false);
-(candies[i]+ extraCandies >= maxi )?ans.push_back(true):ans.push_back(false);
+            //second tarika
+// (candies[i]+ extraCandies >= maxi )?ans.push_back(true):ans.push_back(false);
             
+            ans.push_back(candies[i]+ extraCandies >= maxi);
         }
                       return ans;
     }
