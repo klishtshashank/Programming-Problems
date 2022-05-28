@@ -10,19 +10,20 @@
 class Solution {
 public:
     int guessNumber(int n) {
-        int s= 1;
+        int i=1;
         int e= n;
-        int mid= s+ (e-s)/2;
-        while(s<=e)
+       
+        int mid= i+ (e-i)/2;
+        while(i<=n)
         {
             if(guess(mid)==0)
                 return mid;
             else if(guess(mid)==1)
-                s= mid+1;
+                i=mid+1;
             else
                 e= mid-1;
-            mid= s+ (e-s)/2;
+            mid= i+ (e-i)/2;
         }
-        return -1;
+     return mid;   
     }
 };
