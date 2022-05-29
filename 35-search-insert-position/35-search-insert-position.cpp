@@ -7,9 +7,9 @@ public:
         int mid= s+ (e-s)/2;
         while(s<=e)
         {
-            if(nums[mid]==target)
-                return mid;
-            else if(nums[mid]<target)
+            // if(nums[mid]==target)
+            //     return mid;
+             if(nums[mid]<target)
                 s= mid+1;
             else{
                 e= mid-1;
