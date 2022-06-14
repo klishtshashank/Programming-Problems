@@ -8,9 +8,9 @@ public:
             count+= m[nums[i]-k]+ m[nums[i]+k];
             m[nums[i]]++;
         }
-        if(k==0)
-        return count/2;
-        else
+        // if(k==0)
+        // return count/2;
+        // else
             return count;
     }
 };
