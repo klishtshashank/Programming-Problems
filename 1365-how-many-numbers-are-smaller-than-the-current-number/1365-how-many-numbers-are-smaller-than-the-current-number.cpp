@@ -1,7 +1,25 @@
 class Solution {
 public:
     vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
-     vector<int>ans;
+        vector<int> temp;
+        temp= nums;
+        unordered_map<int, int> map;
+        int n= temp.size();
+        sort(temp.begin(), temp.end());
+        for(int i= n-1;i>=0;i--)
+        {
+            map[temp[i]]=i;
+        }
+        for(int i=0;i<n;i++)
+        {
+            nums[i]= map[nums[i]];
+        }
+        return nums;
+    }
+};
+//BRUTE FORCE APPROACH
+/*
+ vector<int>ans;
         for(int i=0;i<nums.size();i++)
         {
            
@@ -16,5 +34,4 @@ public:
         }
     
         return ans;   
-    }
-};
+*/
