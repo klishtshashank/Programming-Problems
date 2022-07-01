@@ -2,13 +2,18 @@ class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
         int n= nums.size();
-        
-        sort(nums.begin(), nums.end());
-        
-        for(int i=0;i<n-1;i++)
+        unordered_map<int, int> map;
+        for(int i=0;i<n;i++)
         {
-            if(nums[i]==nums[i+1])
+            map[nums[i]]++;
+        }
+    unordered_map<int, int> :: iterator it= map.begin();
+        while(it!= map.end())
+        {
+            if(it->second>1)
                 return true;
+            
+            it++;
         }
         return false;
     }
