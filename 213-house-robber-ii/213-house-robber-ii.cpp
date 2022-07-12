@@ -3,17 +3,21 @@ public:
     int solve(vector<int> &nums)
     {
         int n= nums.size();
-        vector<int>dp(nums.size(),0);
-        dp[0]= nums[0];
+       // vector<int>dp(nums.size(),0);
+        int prev= nums[0];
+        int prev2=0;
         for(int i=1;i<nums.size();i++)
         {
-          
+            
             int x= nums[i];
-            if(i>1) x+=dp[i-2];
-            int y= 0+ dp[i-1];
-            dp[i]= max(x,y);
+            if(i>1) x+=prev2;
+            int y= 0+ prev;
+            int curr= max(x,y);
+            
+           prev2= prev;
+            prev= curr;
         }
-        return dp[n-1];
+        return prev;
     }
     int rob(vector<int>& nums) {
         int n= nums.size();
