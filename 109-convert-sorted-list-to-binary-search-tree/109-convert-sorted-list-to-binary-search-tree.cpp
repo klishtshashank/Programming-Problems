@@ -20,36 +20,78 @@
  * };
  */
 class Solution {
-    TreeNode* helper(vector<int> &nums, int i, int j)
-    {
-        if(i>j)
+ /*  int len(ListNode* head)
+   {
+       ListNode * q= head;
+       int count=0;
+       while(q!=NULL)
+       {
+           count++;
+           q= q->next;
+       }
+       return count;
+   }
+   */
+    /*
+    TreeNode* sortedListToBST(ListNode* head) {
+        if(head==NULL) return NULL;
+      ListNode* temp= head;
+        int n= len(head);
+       
+        int mid= (n+1)/2;
+        while(mid-2>0)
         {
-            return NULL;
+            temp=temp->next;
+            mid--;
+        }
+        ListNode* root= temp->next;
+    //    cout<< root->val<<endl;
+        temp->next=NULL;
+        int x;
+    
+        if(root) {
+            x= root->val;
+            cout<<x;
         }
         
-        int mid= (i+j)/2;
-        TreeNode* root= new TreeNode(nums[mid]);
+         TreeNode* ans= new TreeNode(x);
         
-        root->left= helper(nums, i, mid-1);
-        root->right= helper(nums, mid+1, j);
+        ans->left= sortedListToBST(head);
+    //    ans->right= sortedListToBST(root->next);
+        return ans;
+       // return NULL;
+    }
+    */
+public:
+    
+    int length(ListNode* head) {
+        if(head == NULL) return 0;
+        return length(head->next) + 1;
+    }
+    
+    TreeNode* sortedListToBST(ListNode* head) {
+       
+        if(head == NULL) return NULL;
+        if(head->next == NULL) {
+            TreeNode * root = new TreeNode(head->val);
+            return root;
+        }
+        int n = length(head);
+        int mid = (n+1)/2;
+        ListNode* temp = head;
+        int ind = 1;
+        while(ind < mid-1){
+            ind ++;
+            temp = temp->next;
+        }
+        
+        TreeNode * root = new TreeNode(temp->next->val);
+        
+        root->right = sortedListToBST(temp->next->next);
+        temp->next = NULL;
+        root->left = sortedListToBST(head);
         
         return root;
         
-    }
-    // TreeNode* sortedArrayToBST(vector<int>& nums) {
-    //     int n= nums.size();
-    //         return helper(nums, 0, n-1);
-    // }
-public:
-    TreeNode* sortedListToBST(ListNode* head) {
-        ListNode* temp= head;
-        vector<int> ans;
-        while(temp!=NULL)
-        {
-            ans.push_back(temp->val);
-            temp= temp->next;
-        }
-        int n= ans.size();
-        return helper( ans, 0, n-1);
     }
 };
