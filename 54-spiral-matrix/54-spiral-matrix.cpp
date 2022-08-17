@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<int> spiralOrder(vector<vector<int>>& matrix) {
-      int left = 0;
+     /* int left = 0;
         int right = matrix[0].size()-1;
         int top = 0;
         int bottom = matrix.size()-1;
@@ -32,6 +32,46 @@ public:
             left++;
         }
         
-        return res;    
+        return res;   
+        */
+        vector<int> ans;
+        int n= matrix.size();
+        int m= matrix[0].size();
+        
+         //vector<vector<int>>mat(n, vector<int>(n,-1));
+        int left=0, right=m-1, up=0, down=n-1;
+      //  int x= n*n;
+      //  int z=1;
+        while(left <=right && up<=down)
+        {
+            for(int i=left;i<=right;i++)
+            {
+                ans.push_back(matrix[up][i]);
+                
+            }
+            up++;
+            for(int j=up;j<=down;j++)
+            {
+                ans.push_back(matrix[j][right]);
+               // z++;
+            }
+            right--;
+                        if(left > right || up > down) break;
+
+            for(int i=right;i>=left;i--)
+            {
+                ans.push_back(matrix[down][i]);
+            //    z++;
+            }
+            down--;
+            for(int j=down;j>=up;j--)
+            {
+                ans.push_back(matrix[j][left]);
+                //z++;
+            }
+            left++;
+            
+        }
+        return ans;
     }
 };
