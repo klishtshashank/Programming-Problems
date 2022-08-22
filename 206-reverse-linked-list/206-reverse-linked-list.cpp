@@ -10,19 +10,28 @@
  */
 class Solution {
 public:
-    ListNode* reverse(ListNode* head)
-    {
-        if(head==NULL ||head->next==NULL)
+//     ListNode* reverse(ListNode* head)
+//     {
+//         if(head==NULL ||head->next==NULL)
+//             return head;
+        
+//         ListNode * small= reverse(head->next);
+        
+//         head->next->next= head;
+//         head->next=NULL;
+        
+//         return small;
+//     }
+    ListNode* reverseList(ListNode* head) {
+      //  return reverse(head);
+         if(head==NULL ||head->next==NULL)
             return head;
         
-        ListNode * small= reverse(head->next);
+        ListNode * small= reverseList(head->next);
         
         head->next->next= head;
         head->next=NULL;
         
         return small;
-    }
-    ListNode* reverseList(ListNode* head) {
-        return reverse(head);
     }
 };
