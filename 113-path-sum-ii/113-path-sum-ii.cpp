@@ -38,7 +38,7 @@ public:
         {
             temp.push_back(root->val);
             ans.push_back(temp);
-            temp.clear();
+         //   temp.clear();
             return;
         }
          temp.push_back(root->val);
