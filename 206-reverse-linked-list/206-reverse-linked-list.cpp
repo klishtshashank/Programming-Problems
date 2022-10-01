@@ -24,13 +24,13 @@ public:
 //     }
     ListNode* reverseList(ListNode* head) {
       //  return reverse(head);
-         if(head==NULL ||head->next==NULL)
-            return head;
+    if(head ==NULL || head->next==NULL)
+        return head;
         
-        ListNode * small= reverseList(head->next);
+        ListNode* small= reverseList(head->next);
         
         head->next->next= head;
-        head->next=NULL;
+        head->next= NULL;
         
         return small;
     }
